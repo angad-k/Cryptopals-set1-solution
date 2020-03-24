@@ -99,6 +99,7 @@ def main():
             score += scorer(result[j]) 
         print(result)
         print(score)
+        #This if-else tree doesn't describe me as a person.
         if(score > maxval):
             bestStr11 = bestStr10
             bestStr10 = bestStr9
