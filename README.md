@@ -12,7 +12,7 @@
 - Challenge 5<br>
   The code for this is prettu self explanatory.
 - Challenge 6<br>
-  Okay, this one, I have broken into two parts. The first part is mostly to narrow down on keysize. Most of the part is commented, so I'll explain the final step from part 1. All the most probable strings were stored in bestStrR(keysize).txt Out of all of them, bestStr29.txt showed the maximum semblence to English, Howver, it wasn't yet perfect. <br>
+  Okay, this one, I have broken into two parts. The first part is mostly to narrow down on keysize. Most of the part is commented, so I'll explain the final step from part 1. All the most probable strings were stored in bestStrR(keysize).txt Out of all of them, bestStrR29.txt showed the maximum semblence to English, Howver, it wasn't yet perfect. <br>
   Here's where part 2 comes in. Now, I knew the keysize. All I wanted to do is perfect the output. So, why wasn't it perfect already? Welll, that's because, it might be that the rank of the correct key value might be a little below according to the frequency chart. So, in part2, I slowly tweaked the code, so we use the second most probable and in some cases, the third most probable key value to be used. This sounds tedious, but isn't. Because for the first 29 characters correspond to first 29 key choices. I mean, if we change the first key value, first character in the output string will change and so on.
 - Challenge 7 <br>
   Nothing to explain here. :)
