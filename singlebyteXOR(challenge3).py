@@ -1,8 +1,6 @@
 from binascii import unhexlify, b2a_hex
 import base64
 import array as arr
-print("Jiii")
-
 
 def XORtwoSTRs(a, b):
     string1 = unhexlify(a)
