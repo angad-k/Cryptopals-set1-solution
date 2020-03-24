@@ -86,6 +86,7 @@ def checkXOR(stringA):
         score = 0
         for j in range(0, len(result)):
             score += scorer(result[j]) 
+        #Again, sorry for this.
         if(score > maxval):
             maxval11 = maxval10
             maxval10 = maxval9
