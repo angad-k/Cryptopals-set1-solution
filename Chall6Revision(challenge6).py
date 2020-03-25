@@ -138,6 +138,7 @@ def getBestXOR(stringA):
 
 def main():
     getKeySize()
+    input()
     #next code is written after getting the possible keysizes.
     keyArr = [2, 5, 3, 18, 20, 8, 29] 
     cipher = open('multiKEYencrypted.txt').read().splitlines()

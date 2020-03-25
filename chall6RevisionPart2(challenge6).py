@@ -107,178 +107,27 @@ def switcher(argument):
 
 
 def getBestXOR(stringA):
-    maxval = 0
-    bestStr = ""
-    maxval2 = 0
-    bestStr2 = ""
-    maxval3 = 0
-    bestStr3 = ""
-    maxval4 = 0
-    bestStr4 = ""
-    maxval5 = 0
-    bestStr5 = ""
-    maxval6 = 0
-    bestStr6 = ""
-    maxval7 = 0
-    bestStr7 = ""
-    maxval8 = 0
-    bestStr8 = ""
-    maxval9 = 0
-    bestStr9 = ""
-    maxval10 = 0
-    bestStr10 = ""
-    maxval11 = 0
-    bestStr11 = ""
+    maxval = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    bestStr = ["", "", "", "", "", "", "", "", "", "", ""]
     for i in range(32, 127):
         stringB = chr(i)*(len(stringA))
         result = (XORtwoSTRs(stringA,stringB))
         score = 0
         for j in range(0, len(result)):
             score += scorer(result[j]) 
-        if(score > maxval):
-            bestStr11 = bestStr10
-            bestStr10 = bestStr9
-            bestStr9 = bestStr8
-            bestStr8 = bestStr7
-            bestStr7 = bestStr6
-            bestStr6 = bestStr5
-            bestStr5 = bestStr4
-            bestStr4 = bestStr3
-            bestStr3 = bestStr2
-            bestStr2 = bestStr
-            bestStr = result
-            maxval11 = maxval10
-            maxval10 = maxval9
-            maxval9 = maxval8
-            maxval8 = maxval7
-            maxval7 = maxval6
-            maxval6 = maxval5
-            maxval5 = maxval4
-            maxval4 = maxval3
-            maxval3 = maxval2
-            maxval2 = maxval
-            maxval = score
-        elif(score>maxval2):
-            bestStr11 = bestStr10
-            bestStr10 = bestStr9
-            bestStr9 = bestStr8
-            bestStr8 = bestStr7
-            bestStr7 = bestStr6
-            bestStr6 = bestStr5
-            bestStr5 = bestStr4
-            bestStr4 = bestStr3
-            bestStr3 = bestStr2
-            bestStr2 = result
-            maxval11 = maxval10
-            maxval10 = maxval9
-            maxval9 = maxval8
-            maxval8 = maxval7
-            maxval7 = maxval6
-            maxval6 = maxval5
-            maxval5 = maxval4
-            maxval4 = maxval3
-            maxval3 = maxval2
-            maxval2 = score
-        elif(score>maxval3):
-            bestStr11 = bestStr10
-            bestStr10 = bestStr9
-            bestStr9 = bestStr8
-            bestStr8 = bestStr7
-            bestStr7 = bestStr6
-            bestStr6 = bestStr5
-            bestStr5 = bestStr4 
-            bestStr4 = bestStr3
-            bestStr3 = result
-            maxval11 = maxval10
-            maxval10 = maxval9
-            maxval9 = maxval8
-            maxval8 = maxval7
-            maxval7 = maxval6
-            maxval6 = maxval5
-            maxval5 = maxval4
-            maxval4 = maxval3
-            maxval3 = score
-        elif(score>maxval4):
-            bestStr11 = bestStr10
-            bestStr10 = bestStr9
-            bestStr9 = bestStr8
-            bestStr8 = bestStr7
-            bestStr7 = bestStr6
-            bestStr6 = bestStr5
-            bestStr5 = bestStr4
-            bestStr4 = result
-            maxval11 = maxval10
-            maxval10 = maxval9
-            maxval9 = maxval8
-            maxval8 = maxval7
-            maxval7 = maxval6
-            maxval6 = maxval5
-            maxval5 = maxval4
-            maxval4 = score
-        elif(score>maxval5):
-            bestStr11 = bestStr10
-            bestStr10 = bestStr9
-            bestStr9 = bestStr8
-            bestStr8 = bestStr7
-            bestStr7 = bestStr6
-            bestStr6 = bestStr5
-            bestStr5 = result
-            maxval11 = maxval10
-            maxval10 = maxval9
-            maxval9 = maxval8
-            maxval8 = maxval7
-            maxval7 = maxval6
-            maxval6 = maxval5
-            maxval5 = score
-        elif(score>maxval6):
-            bestStr11 = bestStr10
-            bestStr10 = bestStr9
-            bestStr9 = bestStr8
-            bestStr8 = bestStr7
-            bestStr7 = bestStr6
-            bestStr6 = result
-            maxval11 = maxval10
-            maxval10 = maxval9
-            maxval9 = maxval8
-            maxval8 = maxval7
-            maxval7 = maxval6
-            maxval6 = score
-        elif(score>maxval7):
-            bestStr11 = bestStr10
-            bestStr10 = bestStr9
-            bestStr9 = bestStr8
-            bestStr8 = bestStr7
-            bestStr7 = result
-            maxval11 = maxval10
-            maxval10 = maxval9
-            maxval9 = maxval8
-            maxval8 = maxval7
-            maxval7 = score
-        elif(score>maxval8):
-            bestStr11 = bestStr10
-            bestStr10 = bestStr9
-            bestStr9 = bestStr8
-            bestStr8 = result
-            maxval11 = maxval10
-            maxval10 = maxval9
-            maxval9 = maxval8
-            maxval8 = score   
-        elif(score>maxval9):
-            bestStr11 = bestStr10
-            bestStr10 = bestStr9
-            bestStr9 = result   
-            maxval11 = maxval10
-            maxval10 = maxval9
-            maxval9 = score
-        elif(score>maxval10):
-            bestStr11 = bestStr10
-            bestStr10 = result 
-            maxval11 = maxval10
-            maxval10 = score
-        elif(score>maxval11):
-            bestStr11 = result
-            maxval11 = score
-    return [bestStr, bestStr2, bestStr3, bestStr4, bestStr5, bestStr6, bestStr7, bestStr8, bestStr9, bestStr10, bestStr11]
+        for j in range(0, len(maxval)):
+            if(score > maxval[j]):
+                tempScr = score
+                tempStr = result
+                for k in range(j, len(maxval)):
+                    temp = maxval[k]
+                    maxval[k] = tempScr
+                    tempScr = temp
+                    temp = bestStr[k]
+                    bestStr[k] = tempStr
+                    tempStr = temp
+                break  
+    return bestStr
 
 def main():
     cipher = open('multiKEYencrypted.txt').read().splitlines()

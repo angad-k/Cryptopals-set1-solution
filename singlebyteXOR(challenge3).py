@@ -1,6 +1,8 @@
 from binascii import unhexlify, b2a_hex
 import base64
 import array as arr
+print("Jiii, please input the single byte xor encoded string")
+
 
 def XORtwoSTRs(a, b):
     string1 = unhexlify(a)
@@ -69,6 +71,7 @@ def scorer(argument):
 
 def main():
     stringA = raw_input()
+    """
     maxval = 0
     bestStr = ""
     maxval2 = 0
@@ -91,15 +94,30 @@ def main():
     bestStr10 = ""
     maxval11 = 0
     bestStr11 = ""
+    """
+    maxval = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    bestStr = ["", "", "", "", "", "", "", "", "", "", ""]
     for i in range(32, 127):
         stringB = hex(i)[2:]*(len(stringA)/2)
         result = (XORtwoSTRs(stringA,stringB))
         score = 0
         for j in range(0, len(result)):
-            score += scorer(result[j]) 
-        print(result)
-        print(score)
-        #This if-else tree doesn't describe me as a person.
+            score += scorer(result[j])
+        for i in range(0, len(maxval)):
+            if(score > maxval[i]):
+                tempScr = score
+                tempStr = result
+                for j in range(i, len(maxval)):
+                    temp = maxval[j]
+                    maxval[j] = tempScr
+                    tempScr = temp
+                    temp = bestStr[j]
+                    bestStr[j] = tempStr
+                    tempStr = temp
+                break
+    for i in bestStr:
+        print(i)
+        """
         if(score > maxval):
             bestStr11 = bestStr10
             bestStr10 = bestStr9
@@ -229,7 +247,9 @@ def main():
             maxval9 = maxval8
             maxval8 = score   
         elif(score>maxval9):
-            bestStr11 = bestStr10
+            bestStr1 
+        print(result)
+        print(score)1 = bestStr10
             bestStr10 = bestStr9
             bestStr9 = result   
             maxval11 = maxval10
@@ -254,6 +274,7 @@ def main():
     print(bestStr9)
     print(bestStr10)
     print(bestStr11)
+    """
 if __name__== "__main__":
   main()
 
